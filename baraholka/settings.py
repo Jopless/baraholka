@@ -40,6 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+
+ELASTICSEARCH_DSL = {
+    'default' : {
+        'hosts' : '127.0.0.1:9200'
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

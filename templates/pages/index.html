@@ -9,7 +9,8 @@
   <h5 class="card-header">{{ sneaker.model_name }}</h5>
   <div class="card-body">
     <h5 class="card-title">{{ sneaker.model_price }}</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="{% url 'delete_sneakers' sneaker.id %}"><p class="card-text">Delete</p></a>
+
     <a href="{% url 'sneakers_details' sneaker.id %}" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
