@@ -4,5 +4,6 @@
 
     {{ sneakers_id.model_name }}
     {{ sneakers_id.model_price }}
+    <a href="{% url 'edit_sneakers' sneakers_id.id %}">Edit</a>
 
 {% endblock %}
