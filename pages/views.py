@@ -21,16 +21,18 @@ def index(request):
 
 
 def add_sneakers(request):
-    if request.method == 'POST':
-        form = SneakersForm(request.POST)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = SneakersForm(request.POST)
 
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse(index))
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(reverse(index))
+        else:
+            form = SneakersForm()
+            return render(request, 'pages/add_model.html', {'form' : form})
     else:
-        form = SneakersForm()
-        return render(request, 'pages/add_model.html', {'form' : form})
-
+        return render(request, 'pages/add_model.html')
 
 def sneakers_details(request, pk):
     sneakers_id = get_object_or_404(Sneakers, pk=pk)
